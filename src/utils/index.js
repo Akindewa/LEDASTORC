@@ -33,8 +33,40 @@ export const getCrowdfundContract = async (provider, withWrite) => {
     );
 };
 
-// will set the timing soon
+    export const formatDate = (time)=> {
+        const date = new Date (time * 1000);
 
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1 ;
+        const day = date.getDate();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+
+
+            const monthNames = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+
+            ];
+            const monthName = monthNames[month - 1];
+
+            const formattedHours = hours < 10 ? `0${hours}` : hours;
+            const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+            const formattedDate = `${monthName}  ${day} , ${year}  ${formattedHours} : ${formattedMinutes} ` ;
+
+            return formattedDate;
+    }
   
 
 export const calculateGasMargin = (value) =>
